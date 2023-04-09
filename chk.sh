@@ -12,6 +12,10 @@ do
   echo $i $size
   j=`expr $i + 1`
   logdate=`echo ${ary[$i]} ${ary[$j]}`
+  if [ $j -eq $size ]; then
+    echo $logdate 1 >> $file
+    break
+  fi
   k=`expr $j + 2`
   t_old=`date -d "${ary[$i]} ${ary[$j]}" +%s`
   t_new=`date -d "${ary[$i]} ${ary[$k]}" +%s`
